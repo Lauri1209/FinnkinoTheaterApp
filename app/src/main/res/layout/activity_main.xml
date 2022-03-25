@@ -10,7 +10,7 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Teatteri:"
+        android:text="Teatterit"
         app:layout_constraintBottom_toTopOf="@+id/theatersSpinner"
         app:layout_constraintStart_toStartOf="@+id/theatersSpinner" />
 
@@ -36,7 +36,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Elokuva:"
+        android:text="Elokuvat"
         app:layout_constraintBottom_toTopOf="@+id/movieSpinner"
         app:layout_constraintStart_toStartOf="@+id/movieSpinner" />
 
@@ -57,7 +57,7 @@
         android:layout_height="43dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Date"
+        android:hint="PVM"
         android:inputType="textPersonName"
         android:singleLine="true"
         app:layout_constraintStart_toStartOf="@+id/movieSpinner"
@@ -69,7 +69,7 @@
         android:layout_height="43dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Time"
+        android:hint="Aika"
         android:inputType="textPersonName"
         android:singleLine="true"
         app:layout_constraintEnd_toEndOf="@+id/movieSpinner"
@@ -81,10 +81,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Movie title"
+        android:hint="Elokuvan nimi"
         android:inputType="textPersonName"
         android:singleLine="true"
         app:layout_constraintEnd_toEndOf="@+id/editTextTime"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextDate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCity" />
+
+    <EditText
+        android:id="@+id/editTextCity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Kaupunki"
+        android:inputType="textPersonName"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTime"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextDate"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
 

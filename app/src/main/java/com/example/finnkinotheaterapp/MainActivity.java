@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -17,9 +18,13 @@ public class MainActivity extends AppCompatActivity {
 
     Spinner theatersSpinner;
     Spinner movieSpinner;
+
     ArrayList<Theater> theaters;
     ArrayList<String> spinnerItems;
     Context context = null;
+
+    String date = "dd.MM.yyyy";
+    String time = "HH:mm";
 
     TheatersDatabase theatersDatabase = TheatersDatabase.getInstance();
 
@@ -34,6 +39,20 @@ public class MainActivity extends AppCompatActivity {
         theatersSpinner = findViewById(R.id.theatersSpinner);
         movieSpinner = findViewById(R.id.movieSpinner);
 
+        updateTheaters();
+
+        theatersSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+    }
+
+    // updates the theaters spinner
+    public void updateTheaters() {
         theatersDatabase.XMLreader();
         theaters = theatersDatabase.returnTheaters();
         spinnerItems = new ArrayList<>();
@@ -49,18 +68,10 @@ public class MainActivity extends AppCompatActivity {
 
         theatersSpinner.setAdapter(adapter);
         theatersSpinner.setSelection(0);
-
-        theatersSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-            }
-        });
     }
 
-    public void readXML(View v) {
-        theatersDatabase.XMLreader();
+    public void search(View v) {
+
+        updateTheaters();
     }
 }
